@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "title": "Age Calculator App",
+      "description": "Calcula tu edad exacta con esta App 📆",
+      "tech": ["React", "Node.js","Tailwind","JavaScript", "GitHub"],
+      "imgDeskt": "../src/assets/imgs/p1desktop.png",
+      "img": "../src/assets/imgs/p1mobile.png",
+      "codigoVideo": "https://youtu.be/0xLC-aaihWo",
+      "linkToPage": "https://ovsbrian.github.io/ageCalculatorApp/",
+      "mobileInfo": " Se adapta a la pantalla de tu celular y la de tu tablet para que puedas consultarla en cualquier momento y lugar. ",
+      "textDescr": "Descubre cuántos días has vivido con esta aplicación sencilla y divertida. Solo ingresa tu fecha de nacimiento y obtén tu edad exacta en años, meses y días."
+    },
+    {
+      "id": 2,
+      "title": "Age Calculator App",
+      "description": "volveporfavor",
+      "tech": ["React", "Node.js","Tailwind","JavaScript", "GitHub"],
+      "imgDeskt": "../src/assets/imgs/p1desktop.png",
+      "img": "../src/assets/imgs/p1mobile.png",
+      "codigoVideo": "https://youtu.be/0xLC-aaihWo",
+      "linkToPage": "https://ovsbrian.github.io/ageCalculatorApp/",
+      "mobileInfo": " Se adapta a la pantalla de tu celular y la de tu tablet para que puedas consultarla en cualquier momento y lugar. ",
+      "textDescr": "Descubre cuántos días has vivido con esta aplicación sencilla y divertida. Solo ingresa tu fecha de nacimiento y obtén tu edad exacta en años, meses y días."
+    } 
+  ]
+  
