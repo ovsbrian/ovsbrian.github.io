@@ -3,15 +3,19 @@ import { useParams } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { Tool } from "./Tools";
 import { Image } from "@nextui-org/image";
-import {   useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
-const supabase = createClient('https://uffvkhdprcjqzfybzttd.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVmZnZraGRwcmNqcXpmeWJ6dHRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTIwNTQ1NzQsImV4cCI6MjAwNzYzMDU3NH0.AyCqC_O0QEjrP8BCeSv5A_0fDERWXxjl18TdFB0Mm_c')
+ 
+ 
+
+const supabase = createClient(
+  "https://uffvkhdprcjqzfybzttd.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVmZnZraGRwcmNqcXpmeWJ6dHRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTIwNTQ1NzQsImV4cCI6MjAwNzYzMDU3NH0.AyCqC_O0QEjrP8BCeSv5A_0fDERWXxjl18TdFB0Mm_c"
+);
 
 export const Detalles = () => {
- 
   const { id } = useParams();
-  const [pe, setProject] = useState('xd');
-
+  const [pe, setProject] = useState(" ");
 
   useEffect(() => {
     fetchProject();
@@ -19,16 +23,14 @@ export const Detalles = () => {
 
   async function fetchProject() {
     const { data, error } = await supabase
-      .from('Projects')
-      .select('*')
-      .eq('id', id)
-    if (error) console.log('Error: ', error);
+      .from("Projects")
+      .select("*")
+      .eq("id", id);
+    if (error) console.log("Error: ", error);
     else setProject(data);
   }
-  const p = pe[0]
- 
+  const p = pe[0];
 
- 
   return (
     <>
       <div className="flex flex-col gap-4 text-white select-none">
@@ -46,16 +48,16 @@ export const Detalles = () => {
             className="cursor-pointer"
             target="_blank"
             rel="noreferrer"
-   
+            href={p.url}
           >
             <div className="flex items-center gap-1 hover:opacity-75 ">
               <h2 className="font-semibold text-2xl hover:underline">
-                {p.title}
+                {p.name}
               </h2>
               <ArrowUpRight size={20} />
             </div>
           </a>
-          <span className="opacity-80 hover:opacity-70">{p.tipe}</span>
+          <span className="opacity-80 hover:opacity-70"><Tool toolToFind={p.tipe} /></span>
         </div>
         <div className="flex gap-3 flex-wrap ">
           {p.tech.map((tech) => (
@@ -77,7 +79,6 @@ export const Detalles = () => {
               isBlurred
               className="w-full h-full "
               src={p.image_mobile}
-              
             />
             <p>{p.textMobile}</p>
           </div>

@@ -1,15 +1,18 @@
 import { FaReact, FaNodeJs, FaGithub } from "react-icons/fa";
 import { BiLogoJavascript, BiLogoTailwindCss } from "react-icons/bi";
-import {  Tooltip } from "@nextui-org/react";
+import { Tooltip } from "@nextui-org/react";
 import { FaLinkedinIn } from "react-icons/fa";
 
 const arrayTools = [
-  {Linkedin : <FaLinkedinIn/> },
+  { Linkedin: <FaLinkedinIn /> },
   { React: <FaReact /> },
   { "Node.js": <FaNodeJs /> },
   { Tailwind: <BiLogoTailwindCss /> },
   { GitHub: <FaGithub /> },
   { JavaScript: <BiLogoJavascript /> },
+  {
+    Design: "🎨",
+  },
 ];
 
 export const Tool = ({ toolToFind }) => {
@@ -17,8 +20,14 @@ export const Tool = ({ toolToFind }) => {
   if (foundTool) {
     return (
       <>
-        <Tooltip className="font-semibold" showArrow={true} content={toolToFind} >
-          <span className=" text-2xl w-auto  text-white"> {foundTool[toolToFind]}</span>
+        <Tooltip
+          className="font-semibold"
+          showArrow={true}
+          content={toolToFind}
+        >
+          <span className=" text-2xl w-auto  text-white">
+            {foundTool[toolToFind]}
+          </span>
         </Tooltip>
       </>
     );
