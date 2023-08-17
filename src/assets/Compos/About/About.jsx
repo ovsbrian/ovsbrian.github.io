@@ -1,25 +1,39 @@
 import { ArrowUpRight } from "lucide-react";
 import { AboutMeText } from "./TxtAbout.jsx";
 
+import { RoughNotation } from "react-rough-notation";
+
 export const AboutMe = () => {
   return (
     <>
       <div className="text-white">
         <div>
-          <p>
-            <AboutMeText>Hola 👋🏼, soy Brian Vega.</AboutMeText>
-            <AboutMeText link={'https://jovenesaprogramar.edu.uy/'}>
-              Egresado de Jóvenes a Programar 2022 - Cebial. <ArrowUpRight size={20}/>
-            </AboutMeText>
+          <div>
             <AboutMeText>
-              Me encanta crear sitios web con interfaces agradables y modernas
-              para el usuario.
+              Hola 👋🏼, soy{" "}
+              <RoughNotation type="underline" show={true}>
+                Brian Vega.
+              </RoughNotation>
             </AboutMeText>
+            <AboutMeText link={"https://jovenesaprogramar.edu.uy/"}>
+              <RoughNotation type="box" show={true}>
+                Egresado de Jóvenes a Programar 2022 - Cebial.
+              </RoughNotation>
+              <ArrowUpRight size={20} />
+            </AboutMeText>
+
+            <AboutMeText >
+              <RoughNotation type="highlight" color="#EA3535" show={true}>
+                Me encanta crear sitios web con interfaces agradables y modernas
+                para el usuario.
+              </RoughNotation>
+            </AboutMeText>
+
             <AboutMeText>
               Si quieres saber más sobre mí o sobre mi trabajo, no dudes en
               contactarme. Estaré encantado de hablar contigo. 🙌🏼
             </AboutMeText>
-          </p>
+          </div>
         </div>
       </div>
     </>
