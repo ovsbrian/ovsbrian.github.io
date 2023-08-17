@@ -19,7 +19,7 @@ export const Proyects = () => {
 
   async function fetchProyectos() {
     const { data, error } = await supabase
-    .from('Proyects')
+    .from('Projects')
     .select('*')
   
  

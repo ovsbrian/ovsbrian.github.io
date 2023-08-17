@@ -1,4 +1,4 @@
-{"homepage": "ovsbrian.github.io/ovsbrian.github.io",
+{
   "name": "my-project",
   "private": true,
   "version": "0.0.0",
@@ -7,14 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "predeploy": "npm run build", "deploy": "gh-pages -d build"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@nextui-org/react": "^2.0.8",
     "@supabase/supabase-js": "^2.32.0",
     "framer-motion": "^10.15.1",
-    "gh-pages": "^6.0.0",
     "lucide-react": "^0.264.0",
     "million": "^2.5.8",
     "react": "^18.2.0",
@@ -31,6 +29,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "gh-pages": "^6.0.0",
     "postcss": "^8.4.27",
     "tailwindcss": "^3.3.3",
     "vite": "^4.4.5"
