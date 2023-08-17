@@ -1,13 +1,34 @@
 import { useParams } from "react-router-dom";
-import proyectos from "../../../../public/proyectos.json";
+
 import { ArrowUpRight } from "lucide-react";
 import { Tool } from "./Tools";
 import { Image } from "@nextui-org/image";
+import {   useEffect, useState } from "react";
+import { createClient } from "@supabase/supabase-js";
+const supabase = createClient('https://uffvkhdprcjqzfybzttd.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVmZnZraGRwcmNqcXpmeWJ6dHRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTIwNTQ1NzQsImV4cCI6MjAwNzYzMDU3NH0.AyCqC_O0QEjrP8BCeSv5A_0fDERWXxjl18TdFB0Mm_c')
 
 export const Detalles = () => {
+ 
   const { id } = useParams();
-  const p = proyectos.find((el) => el.id === parseInt(id));
+  const [pe, setProject] = useState('xd');
 
+
+  useEffect(() => {
+    fetchProject();
+  }, []);
+
+  async function fetchProject() {
+    const { data, error } = await supabase
+      .from('Projects')
+      .select('*')
+      .eq('id', id)
+    if (error) console.log('Error: ', error);
+    else setProject(data);
+  }
+  const p = pe[0]
+ 
+
+ 
   return (
     <>
       <div className="flex flex-col gap-4 text-white select-none">
@@ -16,7 +37,7 @@ export const Detalles = () => {
             disableSkeleton="false"
             isBlurred
             className="w-full"
-            src={p.imgDeskt}
+            src={p.image_desk}
             classNames="m-5"
           />
         </div>
@@ -25,7 +46,7 @@ export const Detalles = () => {
             className="cursor-pointer"
             target="_blank"
             rel="noreferrer"
-            href={p.linkToPage}
+   
           >
             <div className="flex items-center gap-1 hover:opacity-75 ">
               <h2 className="font-semibold text-2xl hover:underline">
@@ -34,7 +55,7 @@ export const Detalles = () => {
               <ArrowUpRight size={20} />
             </div>
           </a>
-          <span className="opacity-80 hover:opacity-70">{p.tipo}</span>
+          <span className="opacity-80 hover:opacity-70">{p.tipe}</span>
         </div>
         <div className="flex gap-3 flex-wrap ">
           {p.tech.map((tech) => (
@@ -44,7 +65,7 @@ export const Detalles = () => {
           ))}
         </div>
         <div className="">
-          <p>{p.textDescr} ✨</p>
+          <p>{p.description} ✨</p>
         </div>
         <div className=" gap-2 mb-4 h-auto">
           <div className="my-4">
@@ -55,10 +76,10 @@ export const Detalles = () => {
               disableSkeleton="false"
               isBlurred
               className="w-full h-full "
-              src={p.img}
+              src={p.image_mobile}
               
             />
-            <p>{p.mobileInfo}</p>
+            <p>{p.textMobile}</p>
           </div>
         </div>
       </div>
