@@ -5,8 +5,7 @@ import { Tool } from "./Tools";
 import { Image } from "@nextui-org/image";
 import { useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
- 
- 
+import { Card, Skeleton } from "@nextui-org/react";
 
 const supabase = createClient(
   "https://uffvkhdprcjqzfybzttd.supabase.co",
@@ -16,7 +15,7 @@ const supabase = createClient(
 export const Detalles = () => {
   const { id } = useParams();
   const [pe, setProject] = useState(" ");
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetchProject();
   }, []);
@@ -28,21 +27,74 @@ export const Detalles = () => {
       .eq("id", id);
     if (error) console.log("Error: ", error);
     else setProject(data);
+    setTimeout(() => setLoading(false), 70);
   }
   const p = pe[0];
+
+  if (loading) {
+    return (
+      <>
+        <div className="flex flex-col gap-4 text-white select-none">
+          {/* Image */}
+          <Skeleton>
+            <div className="w-full h-60 rounded-lg  "></div>
+          </Skeleton>
+
+          {/* Name and Link */}
+          <div className="flex gap-3 items-center justify-between">
+            <Skeleton className="w-3/4 rounded-lg">
+              <div className="w-full h-6 rounded-lg  "></div>
+            </Skeleton>
+            <Skeleton className="w-1/4 rounded-lg">
+              <div className="w-full h-6 rounded-lg  "></div>
+            </Skeleton>
+          </div>
+
+          {/* Technologies */}
+          <div className="flex gap-1 flex-wrap">
+            <Skeleton className="w-1/4 rounded-lg">
+              <div className="w-full h-6 rounded-lg   "></div>
+            </Skeleton>
+            <Skeleton className="w-1/4 rounded-lg">
+              <div className="w-full h-6 rounded-lg "></div>
+            </Skeleton>
+            <Skeleton className="w-1/4 rounded-lg">
+              <div className="w-full h-6 rounded-lg "></div>
+            </Skeleton>
+          </div>
+
+          {/* Description */}
+          <Skeleton className="rounded-sm">
+            <div className="w-full h-20 rounded-lg "></div>
+          </Skeleton>
+
+          {/* Responsive */}
+          <div className="w-full  ">
+            {/* Responsive Image */}
+            <Skeleton className=" rounded-lg ">
+              <div className="w-full h-60 rounded-lg  "></div>
+          
+            {/* Responsive Text */}
+            
+              <div className="w-full h-12 rounded-lg  mt-2"></div>
+            </Skeleton>
+          </div>
+        </div>
+      </>
+    );
+  }
 
   return (
     <>
       <div className="flex flex-col gap-4 text-white select-none">
-        <div>
-          <Image
-            disableSkeleton="false"
-            isBlurred
-            className="w-full"
-            src={p.image_desk}
-            classNames="m-5"
-          />
-        </div>
+        <Image
+          disableSkeleton="false"
+          isBlurred
+          className="w-full"
+          src={p.image_desk}
+          classNames="m-5"
+        />
+
         <div className="mt-5 flex items-end justify-between  ">
           <a
             className="cursor-pointer"
@@ -54,11 +106,16 @@ export const Detalles = () => {
               <h2 className="font-semibold text-2xl hover:underline">
                 {p.name}
               </h2>
+
               <ArrowUpRight size={20} />
             </div>
           </a>
-          <span className="opacity-80 hover:opacity-70"><Tool toolToFind={p.tipe} /></span>
+
+          <span className="opacity-80 hover:opacity-70">
+            <Tool toolToFind={p.tipe} />
+          </span>
         </div>
+
         <div className="flex gap-3 flex-wrap ">
           {p.tech.map((tech) => (
             <span key={tech}>
@@ -66,9 +123,11 @@ export const Detalles = () => {
             </span>
           ))}
         </div>
+
         <div className="">
           <p>{p.description} ✨</p>
         </div>
+
         <div className=" gap-2 mb-4 h-auto">
           <div className="my-4">
             <span className="font-semibold text-2xl">📱 Responsive</span>
@@ -80,6 +139,7 @@ export const Detalles = () => {
               className="w-full h-full "
               src={p.image_mobile}
             />
+
             <p>{p.textMobile}</p>
           </div>
         </div>
