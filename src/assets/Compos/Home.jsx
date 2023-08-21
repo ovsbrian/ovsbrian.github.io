@@ -6,9 +6,7 @@ export default function Home() {
   return (
     <>
       <TextHome />
-
-        <h2 className="mt-10 text-white">Mis proyectos:</h2>
- 
+      <h2 className="mt-10 text-white">Mis proyectos:</h2>
       <Proyects />
     </>
   );

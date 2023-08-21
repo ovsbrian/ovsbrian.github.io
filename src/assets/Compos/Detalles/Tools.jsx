@@ -10,9 +10,8 @@ const arrayTools = [
   { Tailwind: <BiLogoTailwindCss /> },
   { GitHub: <FaGithub /> },
   { JavaScript: <BiLogoJavascript /> },
-  {
-    Design: "🎨",
-  },
+  {Design: "🎨"},
+  {Store: "🛒"}
 ];
 
 export const Tool = ({ toolToFind }) => {

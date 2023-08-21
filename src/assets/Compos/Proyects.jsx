@@ -67,7 +67,14 @@ export const Proyects = () => {
             <div>
               <div className="flex flex-col gap-4 my-2 items-start">
                 <div className="flex justify-center items-center gap-1  w-auto cursor-pointer font-semibold ">
-                  <span className="hover:underline ">{proyecto.name} </span>
+                  <span
+                    className="hover:underline "
+                    onClick={() => {
+                      viewNavigate(`/proyecto/${proyecto.id}`);
+                    }}
+                  >
+                    {proyecto.name}{" "}
+                  </span>
                   <ArrowUpRight
                     className="hover:opacity-75 "
                     opacity={"90%"}
@@ -75,10 +82,10 @@ export const Proyects = () => {
                   />
                 </div>
                 <div
-                  className="w-full cursor-pointer"
                   onClick={() => {
                     viewNavigate(`/proyecto/${proyecto.id}`);
                   }}
+                  className="w-full cursor-pointer"
                 >
                   <Image
                     isBlurred

@@ -6,6 +6,8 @@ import { Image } from "@nextui-org/image";
 import { useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { Skeleton } from "@nextui-org/react";
+import { Funcionalidad } from "./Funcionalidad";
+import { Deploy } from "./Deploy";
 
 const supabase = createClient(
   "https://uffvkhdprcjqzfybzttd.supabase.co",
@@ -35,12 +37,10 @@ export const Detalles = () => {
     return (
       <>
         <div className="flex flex-col gap-4 text-white select-none">
-          {/* Image */}
           <Skeleton>
             <div className="w-full h-60 rounded-lg  "></div>
           </Skeleton>
 
-          {/* Name and Link */}
           <div className="flex gap-3 items-center justify-between">
             <Skeleton className="w-3/4 rounded-lg">
               <div className="w-full h-6 rounded-lg  "></div>
@@ -50,7 +50,6 @@ export const Detalles = () => {
             </Skeleton>
           </div>
 
-          {/* Technologies */}
           <div className="flex gap-1 flex-wrap">
             <Skeleton className="w-1/4 rounded-lg">
               <div className="w-full h-6 rounded-lg   "></div>
@@ -63,19 +62,14 @@ export const Detalles = () => {
             </Skeleton>
           </div>
 
-          {/* Description */}
           <Skeleton className="rounded-sm">
             <div className="w-full h-20 rounded-lg "></div>
           </Skeleton>
 
-          {/* Responsive */}
           <div className="w-full  ">
-            {/* Responsive Image */}
             <Skeleton className=" rounded-lg ">
               <div className="w-full h-60 rounded-lg  "></div>
-          
-            {/* Responsive Text */}
-            
+
               <div className="w-full h-12 rounded-lg  mt-2"></div>
             </Skeleton>
           </div>
@@ -94,7 +88,6 @@ export const Detalles = () => {
           src={p.image_desk}
           classNames="m-5"
         />
-
         <div className="mt-5 flex items-end justify-between  ">
           <a
             className="cursor-pointer"
@@ -106,16 +99,13 @@ export const Detalles = () => {
               <h2 className="font-semibold text-2xl hover:underline">
                 {p.name}
               </h2>
-
               <ArrowUpRight size={20} />
             </div>
           </a>
-
           <span className="opacity-80 hover:opacity-70">
             <Tool toolToFind={p.tipe} />
           </span>
         </div>
-
         <div className="flex gap-3 flex-wrap ">
           {p.tech.map((tech) => (
             <span key={tech}>
@@ -123,24 +113,35 @@ export const Detalles = () => {
             </span>
           ))}
         </div>
-
         <div className="">
           <p>{p.description} ✨</p>
         </div>
-
+        {p.text_funcionalidad ? (
+          <Funcionalidad
+            img={p.img_2}
+            text_funcionalidad={p.text_funcionalidad}
+            img2={p.img_3}
+          />
+        ) : (
+          ""
+        )}
+        <Deploy url={p.deploy_url} web={p.deploy_web} text={p.text_deploy} />
         <div className=" gap-2 mb-4 h-auto">
           <div className="my-4">
             <span className="font-semibold text-2xl">📱 Responsive</span>
           </div>
-          <div className="flex gap-2">
-            <Image
-              disableSkeleton="false"
-              isBlurred
-              className="w-full h-full "
-              src={p.image_mobile}
-            />
-
-            <p>{p.textMobile}</p>
+          <div className="flex w-full gap-4 mb-10  ">
+            <div className="w-1/2 h-full">
+              <Image
+                disableSkeleton="false"
+                isBlurred
+                className=""
+                src={p.image_mobile}
+              />
+            </div>
+            <div className="w-1/2 pb-4">
+              <p>{p.textMobile}</p>
+            </div>
           </div>
         </div>
       </div>
