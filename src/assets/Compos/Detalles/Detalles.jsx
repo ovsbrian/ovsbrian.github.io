@@ -116,7 +116,7 @@ export const Detalles = () => {
         <div className="">
           <p>{p.description} ✨</p>
         </div>
-        {p.text_funcionalidad ? (
+        {p.text_funcionalidad !== " " ? (
           <Funcionalidad
             img={p.img_2}
             text_funcionalidad={p.text_funcionalidad}
