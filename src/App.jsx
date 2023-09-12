@@ -14,9 +14,9 @@ export default function App() {
     <>
       <div className=" bg-[#18181A] min-h-screen flex items-center flex-col  ">
         <NavBlur />
-        <div className="flex flex-col w-full md:w-1/3  first-line: mt-10  ">
+        <div className="flex flex-col w-full md:w-1/3 first-line: mt-10  ">
           <Header />
-          <div className="pt-20 px-4 min-h-[500px]">
+          <div className="pt-20 px-4 min-h-[500px]  first-letter:">
             <Routes>
               {/* Routes */}
               <Route index element={<Home />} />
@@ -25,7 +25,9 @@ export default function App() {
               {/* 404 page */}
               <Route path="*" element={<Error404 />} />
             </Routes>
-          <Footer/>
+            <div className=" flex items-end mt-10">
+              <Footer />
+            </div>
           </div>
         </div>
       </div>

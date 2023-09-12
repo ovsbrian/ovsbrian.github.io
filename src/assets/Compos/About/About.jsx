@@ -6,7 +6,7 @@ import { RoughNotation } from "react-rough-notation";
 export const AboutMe = () => {
   return (
     <>
-      <div className="text-white">
+      <div className="text-whit h-96">
         <div>
           <div>
             <AboutMeText>
