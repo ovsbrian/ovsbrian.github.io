@@ -32,7 +32,7 @@ export const Detalles = () => {
     setTimeout(() => setLoading(false), 70);
   }
   const p = pe[0];
-
+  console.log(p.url);
   if (loading) {
     return (
       <>
@@ -93,7 +93,7 @@ export const Detalles = () => {
             className="cursor-pointer"
             target="_blank"
             rel="noreferrer"
-            href={p.url}
+            href={`https://${p.url}`}
           >
             <div className="flex items-center gap-1 hover:opacity-75 ">
               <h2 className="font-semibold text-2xl hover:underline">

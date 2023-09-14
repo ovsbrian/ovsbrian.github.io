@@ -2,6 +2,7 @@ import { FaReact, FaNodeJs, FaGithub } from "react-icons/fa";
 import { BiLogoJavascript, BiLogoTailwindCss } from "react-icons/bi";
 import { Tooltip } from "@nextui-org/react";
 import { FaLinkedinIn } from "react-icons/fa";
+import { Braces } from "lucide-react";
 
 const arrayTools = [
   { Linkedin: <FaLinkedinIn /> },
@@ -11,7 +12,8 @@ const arrayTools = [
   { GitHub: <FaGithub /> },
   { JavaScript: <BiLogoJavascript /> },
   {Design: "🎨"},
-  {Store: "🛒"}
+  {Store: "🛒"},
+  {Api:<Braces /> }
 ];
 
 export const Tool = ({ toolToFind }) => {
