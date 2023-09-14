@@ -8,7 +8,7 @@ export const TextHome = () => {
   return (
     <>
       <div className=" text-white flex items-center gap-2">
-      <RoughNotation type="underline" show={true}>  <em>Desarrollador web jr</em> de Uruguay </RoughNotation>
+      <RoughNotation type="underline" show={true}>  <em>Desarrollador web</em> de Uruguay </RoughNotation>
         <Tooltip showArrow={true} content="Uruguay">
           <span>
             <FlagIcon img={imgUy} />
