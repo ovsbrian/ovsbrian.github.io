@@ -17,7 +17,7 @@ export const AboutMe = () => {
             </AboutMeText>
             <AboutMeText link={"https://jovenesaprogramar.edu.uy/"}>
               <RoughNotation type="box" show={true}>
-                Egresado de Jóvenes a Programar 2022 - Cebial.
+                Egresado de Jóvenes a Programar 2022 - Ceibal.
               </RoughNotation>
               <ArrowUpRight size={20} />
             </AboutMeText>
